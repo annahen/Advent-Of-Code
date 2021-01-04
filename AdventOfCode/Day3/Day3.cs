@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Day3
 {
-  /*class Day3
+  class Day3
   {
     static void Main(string[] args)
     {
@@ -69,5 +69,5 @@ namespace AdventOfCode.Day3
         }
       }
     }
-  }*/
+  }
 }
