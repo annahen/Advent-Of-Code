@@ -11,21 +11,20 @@ namespace AdventOfCode.Day6
     {
       var data = ParseData();
       List<int> allYeses = new List<int>();
-      allYeses.Add(FindYeses(data));
+      //allYeses.Add(FindYesesPart1(data));
+      allYeses.Add(FindYesesPart2(data));
       Console.WriteLine(allYeses.Sum());
       Console.ReadLine();
     }
 
-    private static int FindYeses(string[][] data)
+    private static int FindYesesPart2(string[][] data)
     {
-      int res = 0;
-      foreach (var item in data)
-      {
-        var s = String.Join("", item);
-        int count = s.Distinct().Count();
-        res += count;
-      }
-      return res;
+      return data.Select(item => item.Aggregate((a, b) => new string(a.Intersect(b).ToArray()))).Select(intersect => intersect.Length).Sum();
+    }
+
+    private static int FindYesesPart1(string[][] data)
+    {
+      return data.Select(item => String.Join("", item)).Select(s => s.Distinct().Count()).Sum();
     }
 
     private static string[][] ParseData()
